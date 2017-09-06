@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
-  has_many :courses
-  has_many :charts
+  has_many :posts
+  
   def password=(password)
     @password = password
 		self.password_digest = BCrypt::Password.create(password)

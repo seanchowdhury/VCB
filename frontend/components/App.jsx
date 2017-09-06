@@ -9,12 +9,12 @@ import {
 } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Home from './home/home'
+import Blog from './blog/blog'
 
 const App = () => (
   <div>
     <Switch>
-      <AuthRoute exact path="/" component={Home} />
+      <AuthRoute exact path="/" component={Blog} />
     </Switch>
   </div>
 );
