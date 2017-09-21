@@ -19,6 +19,15 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(id)
+    if @post.update(post_params)
+      render "api/posts/show"
+    else
+      render json: @post.error.messages, status: 422
+    end
+  end
+
   def destroy
     @post = Post.find(id)
     if @post.delete

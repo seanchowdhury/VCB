@@ -6,7 +6,7 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
-    const preloadedState = { session: { currentUser: window.currentUser.user } };
+    const preloadedState = { session: { currentUser: window.currentUser.user }, posts: window.currentUser.posts };
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {

@@ -3,6 +3,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :author,
     class_name: 'User',
-    foriegn_key: :author_id
+    foreign_key: :author_id,
     primary_key: :id
 end
