@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import values from 'lodash/values';
 import { requestPosts } from '../../actions/post_actions'
+import { getMonth } from '../../util/dateUtil'
 
 class PostsIndex extends React.Component {
   constructor(props) {
@@ -24,9 +25,13 @@ class PostsIndex extends React.Component {
     let posts
     if (Object.keys(this.posts).length > 0) {
       posts = Object.keys(this.posts).map((key, index) => {
+        const post = this.posts[key]
+        const createdAt = new Date(post.created_at)
+        const postDate = `${getMonth(createdAt.getMonth())} ${createdAt.getDate()}, ${createdAt.getFullYear()}`
         return <li key={index}>
-          {this.posts[key].title} <br />
-          {this.posts[key].body}
+          {post.title} <br />
+        {post.author_name} • {postDate} <br />
+          {post.body} <br />
         </li>
       })
     }
