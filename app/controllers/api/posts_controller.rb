@@ -5,7 +5,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(id)
+    @post = Post.find(params['id'])
     render "api/posts/show"
   end
 

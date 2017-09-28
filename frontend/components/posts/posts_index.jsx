@@ -48,7 +48,7 @@ const mapStateToProps = (state) => {
     posts: state.posts
 }};
 
-const mapDispatchToProps = (dispatch, { location }) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     requestPosts: () => dispatch(requestPosts()),
   }

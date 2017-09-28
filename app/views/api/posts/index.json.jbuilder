@@ -1,4 +1,3 @@
-
 @posts.each do |post|
   author = post.author
   author_name = author.fname.capitalize + " " + author.lname.capitalize
