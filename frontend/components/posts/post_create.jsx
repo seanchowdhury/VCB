@@ -1,9 +1,8 @@
 import React,{ Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { EditorState } from 'draft-js'
-import { Editor } from 'react-draft-wysiwyg';
-// import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import ReactQuill from 'react-quill'
+import Delta from 'quill-delta';
 import values from 'lodash/values'
 import { createPost } from '../../actions/post_actions'
 import { getMonth } from '../../util/dateUtil'
@@ -11,26 +10,43 @@ import { getMonth } from '../../util/dateUtil'
 class PostCreate extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { editorState: EditorState.createEmpty() }
-    this.onChange = (editorState) => { this.setState({ editorState }) }
+    this.modules = {
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],
+        ['link', 'image'],
+        [{ 'font': [] }],
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+
+        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+        [{ 'direction': 'rtl' }],                         // text direction
+
+        [{ 'align': [] }],
+
+        ['clean']                                         // remove formatting button
+      ]
+    }
+    this.state = { ops: new Delta()}
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  onEditorStateChange(editorState) {
-    this.setState({
-      editorState,
-    })
+  handleChange(content, delta, source, editor) {
+    const newDelta = editor.getContents()
+    this.setState({ ops: newDelta })
   }
 
   render() {
+    console.log(this.state.ops)
     const { editorState } = this.state
     return <div>
       A sample text editor
-      <Editor
-        editorState={editorState}
-        wrapperClassName="demo-wrapper"
-        editorClassName="demo-editor"
-        onEditorStateChange={this.onEditorStateChange}
-      />
+      <ReactQuill value={this.state.ops}
+                  onChange={this.handleChange}
+                  theme="snow"
+                  modules={this.modules} />
     </div>
   }
 
