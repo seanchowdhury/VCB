@@ -28,10 +28,12 @@ class PostsIndex extends React.Component {
         const post = this.posts[key]
         const createdAt = new Date(post.created_at)
         const postDate = `${getMonth(createdAt.getMonth())} ${createdAt.getDate()}, ${createdAt.getFullYear()}`
+        function createMarkup() { return {__html: post.body}; };
         return <li key={index}>
           {post.title} <br />
-        {post.author_name} • {postDate} <br />
+          {post.author_name} • {postDate} <br />
           {post.body} <br />
+          <div dangerouslySetInnerHTML={createMarkup()} />
         </li>
       })
     }

@@ -2,7 +2,6 @@ import React,{ Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ReactQuill from 'react-quill'
-import Delta from 'quill-delta';
 import values from 'lodash/values'
 import { createPost } from '../../actions/post_actions'
 import { getMonth } from '../../util/dateUtil'
@@ -15,38 +14,49 @@ class PostCreate extends React.Component {
         ['bold', 'italic', 'underline', 'strike'],
         ['link', 'image'],
         [{ 'font': [] }],
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        [{ 'color': [] }, { 'background': [] }],
 
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'header': 1 }, { 'header': 2 }],
         [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
+        [{ 'script': 'sub'}, { 'script': 'super' }],
+        [{ 'indent': '-1'}, { 'indent': '+1' }],
+        [{ 'direction': 'rtl' }],
 
         [{ 'align': [] }],
 
-        ['clean']                                         // remove formatting button
+        ['clean']
       ]
     }
-    this.state = { ops: new Delta()}
+    this.state = {
+      title: "is this working?",
+      body: ""}
     this.handleChange = this.handleChange.bind(this)
+    this.handleSave = this.handleSave.bind(this)
   }
 
-  handleChange(content, delta, source, editor) {
-    const newDelta = editor.getContents()
-    this.setState({ ops: newDelta })
+  handleChange(value) {
+    this.setState({ body: value })
+  }
+
+  handleSave() {
+    const post = {
+      title: this.state.title,
+      body: this.state.body
+    }
+    this.props.createPost(post)
   }
 
   render() {
-    console.log(this.state.ops)
     const { editorState } = this.state
     return <div>
       A sample text editor
-      <ReactQuill value={this.state.ops}
+      <ReactQuill value={this.state.body}
                   onChange={this.handleChange}
                   theme="snow"
                   modules={this.modules} />
+
+      <button onClick={() => this.handleSave()}>Save</button>
     </div>
   }
 
@@ -59,5 +69,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
+  null,
   mapDispatchToProps
 )(withRouter(PostCreate));
