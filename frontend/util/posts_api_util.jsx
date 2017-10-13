@@ -1,6 +1,7 @@
 export const createPost = (post) => {
+  console.log('what wait')
   return $.ajax({
-    method: 'POST',
+    type: 'POST',
     url: '/api/posts',
     data: {post}
   })
@@ -8,7 +9,7 @@ export const createPost = (post) => {
 
 export const editPost = (post) => {
   return $.ajax({
-    method: 'PATCH',
+    type: 'PATCH',
     url: `api/posts/${post.id}`,
     data: {post}
   })
@@ -16,21 +17,21 @@ export const editPost = (post) => {
 
 export const deletePost = (post) => {
   return $.ajax({
-    method: 'DELETE',
+    type: 'DELETE',
     url: `api/posts/${post.id}`
   })
 }
 
 export const requestPosts = () => {
   return $.ajax({
-    method: 'GET',
+    type: 'GET',
     url: 'api/posts'
   })
 }
 
 export const requestPost = (postId) => {
   return $.ajax({
-    method: 'GET',
+    type: 'GET',
     url: `api/posts/${postId}`
   })
 }

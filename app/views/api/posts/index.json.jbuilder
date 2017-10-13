@@ -6,7 +6,6 @@ end
   author = post.author
   author_name = author.fname.capitalize + " " + author.lname.capitalize
   body = sanitize(post.body, scrubber: scrubber)
-  debugger
   json.set! post.id do
     json.extract! post, :id, :title, :author_id, :created_at
     json.body body
