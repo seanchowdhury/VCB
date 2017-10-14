@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+4.times do |el|
+  user = User.create(email: Faker::RickAndMorty.location, fname: Faker::Name.first_name, lname: Faker::Name.last_name, password: "password")
+end
+
+32.times do |el|
+  post = Post.create(author_id: rand(4) + 1, title: Faker::Food.dish, body: Faker::Lorem.paragraph(10))
+end
