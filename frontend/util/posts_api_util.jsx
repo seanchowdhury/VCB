@@ -22,16 +22,17 @@ export const deletePost = (post) => {
   })
 }
 
-export const requestPosts = () => {
-  return $.ajax({
-    type: 'GET',
-    url: 'api/posts'
-  })
-}
-
 export const requestPost = (postId) => {
   return $.ajax({
     type: 'GET',
     url: `api/posts/${postId}`
+  })
+}
+
+export const requestPosts = (postId, offset) => {
+  return $.ajax({
+    type: 'GET',
+    url: `api/posts`,
+    data: {postId, offset}
   })
 }

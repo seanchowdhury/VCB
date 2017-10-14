@@ -1,6 +1,11 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @offset = params[:offset].to_i
+    if params[:postId] == "null"
+      @posts = Post.order(id: :desc).limit(6)
+    else
+      @posts = Post.where("id < #{params[:postId]}").order(id: :desc).limit(6)
+    end
     render "api/posts/index"
   end
 

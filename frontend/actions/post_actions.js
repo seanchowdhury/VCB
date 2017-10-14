@@ -24,8 +24,8 @@ export const createPost = (post) => dispatch => {
   })
 }
 
-export const requestPosts = () => dispatch => {
-  return ApiUtil.requestPosts()
+export const requestPosts = (postId, offset) => dispatch => {
+  return ApiUtil.requestPosts(postId, offset)
     .then(posts => (
       dispatch(receivePosts(posts))
     ))

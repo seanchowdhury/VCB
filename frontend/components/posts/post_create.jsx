@@ -29,7 +29,7 @@ class PostCreate extends React.Component {
       ]
     }
     this.state = {
-      title: "is this working?",
+      title: "",
       body: ""}
     this.handleChange = this.handleChange.bind(this)
     this.handleSave = this.handleSave.bind(this)
@@ -37,6 +37,12 @@ class PostCreate extends React.Component {
 
   handleChange(value) {
     this.setState({ body: value })
+  }
+
+  changeTitle() {
+    return (e) => {
+      this.setState({title: e.currentTarget.value})
+    }
   }
 
   handleSave() {
@@ -50,7 +56,7 @@ class PostCreate extends React.Component {
   render() {
     const { editorState } = this.state
     return <div>
-      A sample text editor
+      <input placeholder="Title" value={this.state.title} onChange={this.changeTitle()} />
       <ReactQuill value={this.state.body}
                   onChange={this.handleChange}
                   theme="snow"
