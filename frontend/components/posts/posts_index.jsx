@@ -20,16 +20,21 @@ class PostsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    window.addEventListener('scroll', this.isLastPostInView);
+    if (Object.keys(newProps.posts).length == Object.keys(this.posts).length) {
+      window.removeEventListener('scroll', this.isLastPostInView)
+    }
     this.posts = newProps.posts
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.isLastPostInView);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.isLastPostInView);
   }
 
   isLastPostInView() {
     const rect = this.lastPost.getBoundingClientRect()
     if (rect.top >= 0 && rect.bottom <= $(window).height()) {
+      window.removeEventListener('scroll', this.isLastPostInView)
       this.props.requestPosts(this.lastPost.id, Object.keys(this.posts).length)
     }
   }
