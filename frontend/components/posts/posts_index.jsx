@@ -48,23 +48,23 @@ class PostsIndex extends React.Component {
         const createdAt = new Date(post.created_at)
         const postDate = `${getMonth(createdAt.getMonth())} ${createdAt.getDate()}, ${createdAt.getFullYear()}`
         if (objectKeys.length == index + 1) {
-          return <li key={index} id={post.id} ref={(post) => this.lastPost = post}>
-            {index + 1} {post.title} <br />
-            {post.author_name} • {postDate} <br />
-            <div dangerouslySetInnerHTML={{ __html: post.body }} /> <br />
+          return <li className='post-container' key={index} id={post.id} ref={(post) => this.lastPost = post}>
+            <div className='post-title'>{post.title}</div>
+            <div className='post-details'>{post.author_name} • {postDate}</div>
+            <div className='post-body' dangerouslySetInnerHTML={{ __html: post.body }} />
           </li>
         } else {
-          return <li key={index}>
-            {index + 1} {post.title} <br />
-            {post.author_name} • {postDate} <br />
-            <div dangerouslySetInnerHTML={{ __html: post.body }} /> <br />
+          return <li className='post-container' key={index}>
+            <div className='post-title'>{post.title}</div>
+            <div className='post-details'>{post.author_name} • {postDate}</div>
+            <div className='post-body' dangerouslySetInnerHTML={{ __html: post.body }} />
           </li>
         }
       })
     }
 
     return (
-      <div>
+      <div id='post-index'>
         {posts}
       </div>
     )
