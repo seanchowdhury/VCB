@@ -1,0 +1,93 @@
+#post-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index-container {
+  width: 600px;
+  margin-bottom: 40px;
+}
+
+.index-title {
+  font-size: 23px;
+  margin-bottom: 1px;
+  display: inline;
+
+  background-image:
+    linear-gradient(rgb(242, 255, 253), rgb(242, 255, 253)),
+    linear-gradient(rgb(242, 255, 253), rgb(242, 255, 253)),
+    linear-gradient(#333, #333);
+
+  background-size:
+    0.10em 0.01em,
+    0.10em 0.07em,
+    0.07em 0.07em;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat-x;
+
+  background-position-y:
+    98%,
+    98%,
+    98%;
+
+  background-position-x:
+    0%,
+    100%,
+    0%;
+
+  text-shadow:
+     0.10em  0.00em rgb(242, 255, 253),
+     0.10em  0.02em rgb(242, 255, 253),
+     0.10em  0.04em rgb(242, 255, 253),
+     0.10em  0.06em rgb(242, 255, 253),
+     0.10em  0.08em rgb(242, 255, 253),
+     0.10em  0.10em rgb(242, 255, 253),
+     0.08em  0.10em rgb(242, 255, 253),
+     0.06em  0.10em rgb(242, 255, 253),
+     0.04em  0.10em rgb(242, 255, 253),
+     0.02em  0.10em rgb(242, 255, 253),
+     0.00em  0.10em rgb(242, 255, 253),
+    -0.02em  0.10em rgb(242, 255, 253),
+    -0.04em  0.10em rgb(242, 255, 253),
+    -0.06em  0.10em rgb(242, 255, 253),
+    -0.08em  0.10em rgb(242, 255, 253),
+    -0.10em  0.10em rgb(242, 255, 253),
+    -0.10em  0.08em rgb(242, 255, 253),
+    -0.10em  0.06em rgb(242, 255, 253),
+    -0.10em  0.04em rgb(242, 255, 253),
+    -0.10em  0.02em rgb(242, 255, 253),
+    -0.10em  0.00em rgb(242, 255, 253),
+    -0.10em  0.02em rgb(242, 255, 253),
+    -0.10em  0.04em rgb(242, 255, 253),
+    -0.10em -0.06em rgb(242, 255, 253),
+    -0.10em -0.08em rgb(242, 255, 253),
+    -0.10em -0.10em rgb(242, 255, 253),
+    -0.08em -0.10em rgb(242, 255, 253),
+    -0.06em -0.10em rgb(242, 255, 253),
+    -0.04em -0.10em rgb(242, 255, 253),
+    -0.02em -0.10em rgb(242, 255, 253),
+     0.00em -0.10em rgb(242, 255, 253),
+     0.02em -0.10em rgb(242, 255, 253),
+     0.04em -0.10em rgb(242, 255, 253),
+     0.06em -0.10em rgb(242, 255, 253),
+     0.08em -0.10em rgb(242, 255, 253),
+     0.10em -0.10em rgb(242, 255, 253),
+     0.10em -0.08em rgb(242, 255, 253),
+     0.10em -0.06em rgb(242, 255, 253),
+     0.10em -0.04em rgb(242, 255, 253),
+     0.10em -0.02em rgb(242, 255, 253);
+  font-family: 'Droid Serif', serif;
+}
+
+.index-details {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.index-body {
+  font-size: 16px;
+}

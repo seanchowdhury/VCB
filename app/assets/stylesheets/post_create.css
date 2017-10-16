@@ -1,0 +1,23 @@
+#post-create {
+  display: flex;
+  flex-direction: column;
+}
+
+#create-title {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+#editor {
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+  height: 400px;
+  background-color: white;
+}
+
+#post-save {
+  background-color: white;
+  border: solid;
+  height: 30px;
+  width: 300px;
+}

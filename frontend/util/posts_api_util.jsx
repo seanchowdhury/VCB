@@ -1,5 +1,4 @@
 export const createPost = (post) => {
-  console.log('what wait')
   return $.ajax({
     type: 'POST',
     url: '/api/posts',

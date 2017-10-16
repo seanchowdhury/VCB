@@ -48,16 +48,16 @@ class PostsIndex extends React.Component {
         const createdAt = new Date(post.created_at)
         const postDate = `${getMonth(createdAt.getMonth())} ${createdAt.getDate()}, ${createdAt.getFullYear()}`
         if (objectKeys.length == index + 1) {
-          return <li className='post-container' key={index} id={post.id} ref={(post) => this.lastPost = post}>
-            <div className='post-title'>{post.title}</div>
-            <div className='post-details'>{post.author_name} • {postDate}</div>
-            <div className='post-body' dangerouslySetInnerHTML={{ __html: post.body }} />
+          return <li className='index-container' key={index} id={post.id} ref={(post) => this.lastPost = post}>
+            <div className='index-title'>{post.title}</div>
+            <div className='index-details'>{post.author_name} • {postDate}</div>
+            <div className='index-body' dangerouslySetInnerHTML={{ __html: post.body }} />
           </li>
         } else {
-          return <li className='post-container' key={index}>
-            <div className='post-title'>{post.title}</div>
-            <div className='post-details'>{post.author_name} • {postDate}</div>
-            <div className='post-body' dangerouslySetInnerHTML={{ __html: post.body }} />
+          return <li className='index-container' key={index}>
+            <div className='index-title'>{post.title}</div>
+            <div className='index-details'>{post.author_name} • {postDate}</div>
+            <div className='index-body' dangerouslySetInnerHTML={{ __html: post.body }} />
           </li>
         }
       })

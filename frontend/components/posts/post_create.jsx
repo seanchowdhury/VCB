@@ -55,14 +55,15 @@ class PostCreate extends React.Component {
 
   render() {
     const { editorState } = this.state
-    return <div>
-      <input placeholder="Title" value={this.state.title} onChange={this.changeTitle()} />
-      <ReactQuill value={this.state.body}
+    return <div id='post-create'>
+      <input id='create-title' placeholder="Title" value={this.state.title} onChange={this.changeTitle()} />
+      <ReactQuill id='editor'
+                  value={this.state.body}
                   onChange={this.handleChange}
                   theme="snow"
                   modules={this.modules} />
 
-      <button onClick={() => this.handleSave()}>Save</button>
+      <button id='post-save' onClick={() => this.handleSave()}>Save</button>
     </div>
   }
 

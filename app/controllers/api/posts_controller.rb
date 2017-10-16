@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
     if params[:postId] == "null"
       @posts = Post.includes(:author).order(id: :desc).limit(6)
     else
-      @posts = Post.where("id < #{params[:postId]}").order(id: :desc).limit(6)
+      @posts = Post.includes(:author).where("id < #{params[:postId]}").order(id: :desc).limit(6)
     end
     render "api/posts/index"
   end
@@ -16,7 +16,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.author_id = rand(3) #current_user.id
+    @post.author_id = rand(2) #current_user.id
     if @post.save
       render "api/posts/show"
     else
