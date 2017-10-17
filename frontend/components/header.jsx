@@ -15,7 +15,7 @@ export default class Header extends React.Component {
           <Link to='/posts'><img id='header-logo' src={window.images.vcb_logo} /></Link>
           <li className='nav-item'>Brooklyn!</li>
           <li className='nav-item'>SOS!</li>
-          <li className='nav-item'>Blog</li>
+          <Link to='/posts'><li className='nav-item'>Blog</li></Link>
           <li className='nav-item'>About Us</li>
           <li className='nav-item'>Calendar</li>
           <li className='nav-item'>FAQ</li>
