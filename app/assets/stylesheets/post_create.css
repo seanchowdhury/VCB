@@ -4,18 +4,21 @@
 }
 
 #create-title {
+  margin: 0 100px;
   margin-bottom: 10px;
   padding: 5px;
+  font-size: 30px;
 }
 
 #editor {
-  margin-bottom: 50px;
+  margin: 0 100px 50px 100px;
   padding-bottom: 40px;
   height: 400px;
   background-color: white;
 }
 
 #post-save {
+  margin: 0 100px;
   background-color: white;
   border: solid;
   height: 30px;

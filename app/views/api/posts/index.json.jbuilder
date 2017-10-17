@@ -7,7 +7,8 @@ end
   author_name = author.fname.capitalize + " " + author.lname.capitalize
   body = sanitize(post.body, scrubber: scrubber)
   json.set! (index + @offset) do
-    json.extract! post, :id, :title, :author_id, :created_at
+    json.extract! post, :id, :author_id, :created_at
+    json.title post.title.upcase
     json.body body
     json.author_name author_name
   end

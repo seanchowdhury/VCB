@@ -16,7 +16,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.author_id = rand(2) #current_user.id
+    @post.author_id = rand(2) + 1 #current_user.id
     if @post.save
       render "api/posts/show"
     else

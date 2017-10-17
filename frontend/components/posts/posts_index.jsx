@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import values from 'lodash/values';
 import { requestPosts } from '../../actions/post_actions'
 import { getMonth } from '../../util/dateUtil'
+import Header from '../header'
 
 class PostsIndex extends React.Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class PostsIndex extends React.Component {
 
     return (
       <div id='post-index'>
+        <Header />
         {posts}
       </div>
     )

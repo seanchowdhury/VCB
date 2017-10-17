@@ -3,8 +3,11 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ReactQuill from 'react-quill'
 import values from 'lodash/values'
+import S3Uploader from '../util/dropzone_s3_uploader'
 import { createPost } from '../../actions/post_actions'
 import { getMonth } from '../../util/dateUtil'
+import ReactS3Uploader from 'react-s3-uploader'
+import Header from '../header'
 
 class PostCreate extends React.Component {
   constructor(props) {
@@ -30,7 +33,8 @@ class PostCreate extends React.Component {
     }
     this.state = {
       title: "",
-      body: ""}
+      body: "",
+      galleryName: ""}
     this.handleChange = this.handleChange.bind(this)
     this.handleSave = this.handleSave.bind(this)
   }
@@ -56,7 +60,8 @@ class PostCreate extends React.Component {
   render() {
     const { editorState } = this.state
     return <div id='post-create'>
-      <input id='create-title' placeholder="Title" value={this.state.title} onChange={this.changeTitle()} />
+      <Header />
+      <input id='create-title' placeholder="TITLE" value={this.state.title} onChange={this.changeTitle()} />
       <ReactQuill id='editor'
                   value={this.state.body}
                   onChange={this.handleChange}

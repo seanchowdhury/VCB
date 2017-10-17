@@ -1,0 +1,17 @@
+#header-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15% 2px 15%;
+  font-family: 'Cabin', sans-serif;
+}
+
+#header-logo {
+  height: 100px;
+}
+
+#header-banner {
+  width: 100vw;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}

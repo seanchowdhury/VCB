@@ -14,14 +14,6 @@
  *= require_self
  */
 
- ul {
-   list-style-type: none;
- }
-
-li {
-  list-style-type: none;
-}
-
 body {
-  background-color: rgb(242, 255, 253);
+  background-color: #f9fffe
 }
