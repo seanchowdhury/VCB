@@ -14,6 +14,15 @@
   width: 280px;
   height: 100vh;
   font-family: 'Roboto', sans-serif;
+  left: 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+#header-nav.closed {
+  left: -280px;
 }
 
 .nav-item {
@@ -24,7 +33,7 @@
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 1.5px;
-  transition: color 0.5s;
+  transition: color 0.3s;
 }
 
 .nav-selected {
@@ -46,4 +55,28 @@
   height: 300px;
   object-fit: cover;
   margin-bottom: 20px;
+}
+
+#header-toggle {
+  position: fixed;
+  left: 290px;
+  border: none;
+  background: none;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+#header-toggle.closed {
+  left: 30px;
+}
+
+#header-toggle img {
+  width: 50px;
+}
+
+
+button:hover {
+  cursor: pointer
 }

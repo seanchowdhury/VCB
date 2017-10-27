@@ -19,6 +19,13 @@ class Header extends React.Component {
       { title: "Groups", path: "/groups"},
       { title: "Rentals", path: "/rentals"}
     ]
+    this.headerOpen = true
+    this.toggleHeader = this.toggleHeader.bind(this)
+  }
+
+  toggleHeader() {
+    this.headerOpen = !this.headerOpen
+    this.forceUpdate()
   }
 
   render() {
@@ -27,17 +34,35 @@ class Header extends React.Component {
       let itemClass = 'nav-item'
       if (this.props.match.path == item.path) {
         itemClass = 'nav-item nav-selected'
-        console.log(item.title)
       }
       return <Link to={item.path} key={idx} className={itemClass}>{item.title}</Link>
     })
+    let header
+
+    if (this.headerOpen) {
+        header = (
+        <div id='header-container'>
+          <ul id='header-nav' className="open">
+            <Link to={"/"}><img id='header-logo' src={window.images.vcb_logo} /></Link>
+            {navItems}
+          </ul>
+          <button id='header-toggle' className='open' onClick={this.toggleHeader}><img src={window.images.menu_toggle} /></button>
+        </div>
+        )
+    } else {
+      header = (
+        <div id='header-container'>
+          <ul id='header-nav' className="closed">
+            <Link to={"/"}><img id='header-logo' src={window.images.vcb_logo} /></Link>
+            {navItems}
+          </ul>
+          <button id='header-toggle' className='closed' onClick={this.toggleHeader}><img src={window.images.menu_toggle} /></button>
+        </div>
+      )
+    }
+
     return (
-      <div id='header-container'>
-        <ul id='header-nav'>
-          <Link to='/posts'><img id='header-logo' src={window.images.vcb_logo} /></Link>
-          {navItems}
-        </ul>
-      </div>
+      header
     )
   }
   // <img src={window.images.header} id='header-banner'/>

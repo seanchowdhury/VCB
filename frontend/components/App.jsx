@@ -12,9 +12,11 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import PostsIndex from './posts/posts_index'
 import PostShow from './posts/post_show'
 import PostCreate from './posts/post_create'
+import Header from './header'
 
 const App = () => (
-  <div>
+  <div id='page-container'>
+    <Header />
     <Switch>
       <AuthRoute exact path="/posts" component={PostsIndex} />
       <AuthRoute exact path="/posts/new" component={PostCreate} />

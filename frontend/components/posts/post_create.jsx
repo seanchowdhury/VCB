@@ -60,7 +60,6 @@ class PostCreate extends React.Component {
   render() {
     const { editorState } = this.state
     return <div id='post-create'>
-      <Header />
       <input id='create-title' placeholder="TITLE" value={this.state.title} onChange={this.changeTitle()} />
       <ReactQuill id='editor'
                   value={this.state.body}
