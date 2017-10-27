@@ -1,8 +1,13 @@
+#index-container {
+  margin: 0 auto;
+}
+
 #post-index {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
 .index-container {
   width: 720px;

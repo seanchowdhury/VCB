@@ -37,10 +37,10 @@ class Header extends React.Component {
           <Link to='/posts'><img id='header-logo' src={window.images.vcb_logo} /></Link>
           {navItems}
         </ul>
-        <img src={window.images.header} id='header-banner'/>
       </div>
     )
   }
+  // <img src={window.images.header} id='header-banner'/>
 }
 
 const mapStateToProps = ({posts}, {match}) => {

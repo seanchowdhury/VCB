@@ -65,9 +65,9 @@ class PostsIndex extends React.Component {
     }
 
     return (
-      <div id='post-index'>
+      <div id='page-container'>
         <Header />
-        {posts}
+        <div id='index-container'>{posts}</div>
       </div>
     )
   }
