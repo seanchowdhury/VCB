@@ -32,10 +32,10 @@ class Header extends React.Component {
     this.location = this.props.match.path
     const navItems = this.navItems.map((item, idx) => {
       let itemClass = 'nav-item'
-      if (this.props.match.path == item.path) {
+      if (this.props.location.pathname == item.path) {
         itemClass = 'nav-item nav-selected'
       }
-      return <Link to={item.path} key={idx} className={itemClass}>{item.title}</Link>
+      return <Link to={item.path} key={idx} className={itemClass} onClick={this.toggleHeader}>{item.title}</Link>
     })
     let header
 
