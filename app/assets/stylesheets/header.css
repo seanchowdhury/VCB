@@ -2,9 +2,10 @@
   display: flex;
 }
 
-#header-container {
+#header-container.open {
   width: 280px;
 }
+
 
 #header-nav {
   position: fixed;
@@ -66,6 +67,10 @@
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+}
+
+#header-toggle:focus {
+  outline: none;
 }
 
 #header-toggle.closed {

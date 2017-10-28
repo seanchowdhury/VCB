@@ -19,13 +19,14 @@ class Header extends React.Component {
       { title: "Groups", path: "/groups"},
       { title: "Rentals", path: "/rentals"}
     ]
-    this.headerOpen = true
+    this.state = {
+      headerOpen: false
+    }
     this.toggleHeader = this.toggleHeader.bind(this)
   }
 
   toggleHeader() {
-    this.headerOpen = !this.headerOpen
-    this.forceUpdate()
+    this.setState({ headerOpen: !this.state.headerOpen })
   }
 
   render() {
@@ -39,9 +40,9 @@ class Header extends React.Component {
     })
     let header
 
-    if (this.headerOpen) {
+    if (this.state.headerOpen) {
         header = (
-        <div id='header-container'>
+        <div id='header-container' className="open">
           <ul id='header-nav' className="open">
             <Link to={"/"}><img id='header-logo' src={window.images.vcb_logo} /></Link>
             {navItems}
